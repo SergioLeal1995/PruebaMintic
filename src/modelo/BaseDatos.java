@@ -39,6 +39,7 @@ public class BaseDatos {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = (Connection) DriverManager.getConnection(url, user, pass);
+            System.out.println("Conexion establecida");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -97,12 +98,12 @@ public class BaseDatos {
         try {
             ps = conexion.prepareStatement(sql);
             switch (flag) {
-                case 1 -> ps.setInt(1, codigo);
-                case 2 -> ps.setString(1, nombre);
-                case 3 -> {
+                case 1 : ps.setInt(1, codigo);
+                case 2 : ps.setString(1, nombre);
+                case 3 : {
                             ps.setInt(1, codigo);
                             ps.setString(2, nombre);}
-                default -> {
+                default : {
                     System.out.println("No hay argumentos para el query");
                 }
             }
@@ -172,34 +173,34 @@ public class BaseDatos {
         try {
             ps = conexion.prepareStatement(sql);
             switch (flag) {
-                case 1 -> {
+                case 1 : {
                     ps.setInt(1, valorCompra);
                     ps.setString(2, nombre);
                 }
-                case 2 -> {
+                case 2 : {
                     ps.setInt(1, valorVenta);
                     ps.setString(2, nombre);
                 }
-                case 3 -> {
+                case 3 : {
                     ps.setInt(1, Cantidad);
                     ps.setString(2, nombre);
                 }
-                case 4 -> {
+                case 4 : {
                     ps.setInt(1, valorCompra);
                     ps.setInt(2, valorVenta);
                     ps.setString(3, nombre);
                 }
-                case 5 -> {
+                case 5 : {
                     ps.setInt(1, valorVenta);
                     ps.setInt(2, Cantidad);
                     ps.setString(3, nombre);
                 }
-                case 6 -> {
+                case 6 : {
                     ps.setInt(1, valorCompra);
                     ps.setInt(2, Cantidad);
                     ps.setString(3, nombre);
                 }
-                default -> {
+                default : {
                         ps.setInt(1, valorCompra);
                         ps.setInt(2, valorVenta);
                         ps.setInt(2, Cantidad);
