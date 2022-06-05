@@ -30,7 +30,7 @@ public class BaseDatos {
         
     }
 
-    public void EstableciendoConexion() {
+    public void EstableciendoConexion() {//OK
         String db = mispropiedades.getProperty("database");
         String iploc = mispropiedades.getProperty("IPLocal");
         String user = mispropiedades.getProperty("usuario");
@@ -52,7 +52,7 @@ public class BaseDatos {
         }
     }
 
-    public void Listar() {//ResultSet
+    public void Listar() {//ResultSet OK
 
         PreparedStatement ps;
         ResultSet rs = null;
@@ -113,7 +113,7 @@ public class BaseDatos {
         return rs;
     }
 
-    public String Crear(int id, String Nombre, int valorCompra, int valorVenta, int Cantidad, String Categoria) {
+    public String Crear(int id, String Nombre, int valorCompra, int valorVenta, int Cantidad, String Categoria) {//OK
         PreparedStatement ps;
         String sql = "INSERT INTO Producto(id,nombre,valor_compra,valor_venta,cantidad,categoria) VALUES (?,?,?,?,?,?)";
         try {
@@ -162,7 +162,7 @@ public class BaseDatos {
         }else if(!" ".equals(cadena_c) && " ".equals(cadena_vv) && !" ".equals(cadena_vc)){
             sql = "UPDATE Producto SET valor_compra = ?, cantidad =? WHERE nombre = ?";
             flag = 6;
-        }else if(!" ".equals(cadena_vc) && " ".equals(cadena_vv) && " ".equals(cadena_c)){
+        }else if(!" ".equals(cadena_vc) && !" ".equals(cadena_vv) && !" ".equals(cadena_c)){
             sql = "UPDATE Producto SET valor_compra = ?, valor_venta = ?, cantidad =? WHERE nombre = ?";
             flag = 7;
         }else{

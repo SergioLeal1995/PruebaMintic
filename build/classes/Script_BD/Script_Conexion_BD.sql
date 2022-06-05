@@ -1,3 +1,6 @@
+create schema tienda_reto_5;
+use tienda_reto_5;
+
 create table Producto(
 	codigo int primary key not null,
 	nombre varchar (45) not null,
