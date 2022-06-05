@@ -9,6 +9,7 @@ public class controlador {
         database = new BaseDatos();
         
         database.EstableciendoConexion();
-       
+        //System.out.print(database.Crear(140, "Rastrillo", 12000, 30000, 50, "Jardin"));
+        //database.Listar();
     }
 }
