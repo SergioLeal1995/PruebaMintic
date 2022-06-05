@@ -138,33 +138,30 @@ public class BaseDatos {
 
     }
     
-    public String Modificar(String nombre, int valorCompra, int valorVenta, int Cantidad) {
+    public String Modificar(String nombre, String cadena_vc, String cadena_vv, String cadena_c) {
         PreparedStatement ps;
-        String sql = " ";
-        String cadena_vc = String.valueOf(valorCompra);
-        String cadena_vv = String.valueOf(valorVenta);
-        String cadena_c = String.valueOf(Cantidad);
+        String sql = " ";    
         int flag = 0;
-        if(!" ".equals(cadena_vc) && " ".equals(cadena_vv) && " ".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_compra =? WHERE nombre = ?";
+        if(!"".equals(cadena_vc) && "".equals(cadena_vv) && "".equals(cadena_c)){
+            sql = "UPDATE Producto SET valor_compra =? WHERE nombre =?";
             flag = 1;
-        }else if(!" ".equals(cadena_vv) && " ".equals(cadena_vc) && " ".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_venta =? WHERE nombre = ?";
+        }else if(!"".equals(cadena_vv) && "".equals(cadena_vc) && "".equals(cadena_c)){
+            sql = "UPDATE Producto SET valor_venta =? WHERE nombre =?";
             flag = 2;
-        }else if(!" ".equals(cadena_c) && " ".equals(cadena_vv) && " ".equals(cadena_vc)){
-            sql = "UPDATE Producto SET cantidad =? WHERE nombre = ?";
+        }else if(!"".equals(cadena_c) && "".equals(cadena_vv) && "".equals(cadena_vc)){
+            sql = "UPDATE Producto SET cantidad =? WHERE nombre =?";
             flag = 3;
-        }else if(!" ".equals(cadena_vc) && !" ".equals(cadena_vv) && " ".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_compra = ?, valor_venta =? WHERE nombre = ?";
+        }else if(!"".equals(cadena_vc) && !"".equals(cadena_vv) && "".equals(cadena_c)){
+            sql = "UPDATE Producto SET valor_compra =?, valor_venta =? WHERE nombre =?";
             flag = 4;
-        }else if(!" ".equals(cadena_vv) && " ".equals(cadena_vc) && !" ".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_venta = ?, cantidad =? WHERE nombre = ?";
+        }else if(!"".equals(cadena_vv) && "".equals(cadena_vc) && !"".equals(cadena_c)){
+            sql = "UPDATE Producto SET valor_venta =?, cantidad =? WHERE nombre =?";
             flag = 5;
-        }else if(!" ".equals(cadena_c) && " ".equals(cadena_vv) && !" ".equals(cadena_vc)){
-            sql = "UPDATE Producto SET valor_compra = ?, cantidad =? WHERE nombre = ?";
+        }else if(!"".equals(cadena_c) && "".equals(cadena_vv) && !"".equals(cadena_vc)){
+            sql = "UPDATE Producto SET valor_compra =?, cantidad =? WHERE nombre =?";
             flag = 6;
-        }else if(!" ".equals(cadena_vc) && !" ".equals(cadena_vv) && !" ".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_compra = ?, valor_venta = ?, cantidad =? WHERE nombre = ?";
+        }else if(!"".equals(cadena_vc) && !"".equals(cadena_vv) && !"".equals(cadena_c)){
+            sql = "UPDATE Producto SET valor_compra =?, valor_venta =?, cantidad =? WHERE nombre =?";
             flag = 7;
         }else{
             System.out.println("No escribió en ningún campo");
@@ -174,41 +171,47 @@ public class BaseDatos {
             ps = conexion.prepareStatement(sql);
             switch (flag) {
                 case 1 : {
-                    ps.setInt(1, valorCompra);
+                    ps.setString(1, cadena_vc);
                     ps.setString(2, nombre);
                 }
                 case 2 : {
-                    ps.setInt(1, valorVenta);
+                    ps.setString(1, cadena_vv);
                     ps.setString(2, nombre);
                 }
                 case 3 : {
-                    ps.setInt(1, Cantidad);
+                    ps.setString(1, cadena_c);
                     ps.setString(2, nombre);
                 }
                 case 4 : {
-                    ps.setInt(1, valorCompra);
-                    ps.setInt(2, valorVenta);
+                    ps.setString(1, cadena_vc);
+                    ps.setString(2, cadena_vv);
                     ps.setString(3, nombre);
                 }
                 case 5 : {
-                    ps.setInt(1, valorVenta);
-                    ps.setInt(2, Cantidad);
+                    ps.setString(1, cadena_vv);
+                    ps.setString(2, cadena_c);
                     ps.setString(3, nombre);
                 }
                 case 6 : {
-                    ps.setInt(1, valorCompra);
-                    ps.setInt(2, Cantidad);
+                    ps.setString(1, cadena_vc);
+                    ps.setString(2, cadena_c);
                     ps.setString(3, nombre);
                 }
                 default : {
-                        ps.setInt(1, valorCompra);
-                        ps.setInt(2, valorVenta);
-                        ps.setInt(2, Cantidad);
-                        ps.setString(3, nombre);
+                        ps.setString(1, cadena_vc);
+                        ps.setString(2, cadena_vv);
+                        ps.setString(3, cadena_c);
+                        ps.setString(4, nombre);
                 }
             }
+            int contador = ps.executeUpdate();
+            if (contador > 0) {
+                System.out.print("Se agregó el registro de manera exitosa");
+            } else {
+                System.out.print("Ocurrio un problema al agregar el registro");
+            }
         } catch (SQLException e) {
-            return "Error la hacer Update";
+            return "Error la hacer Update" + e;
         }
         return "Registro actualizado con éxito";
     }

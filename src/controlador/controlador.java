@@ -11,6 +11,6 @@ public class controlador {
         database.EstableciendoConexion();
         //System.out.print(database.Crear(140, "Rastrillo", 12000, 30000, 50, "Jardin"));
         //database.Listar();
-        System.out.print(database.Modificar("Hombre solo", 45, 13000, 30));
+        System.out.print(database.Modificar("Hombre solo", "0", "4", "100"));
     }
 }
