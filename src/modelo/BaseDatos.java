@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.Optional;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class BaseDatos {
         }
     }
 
-    public void Listar() {//ResultSet OK
+    public ResultSet Listar() {//ResultSet OK
 
         PreparedStatement ps;
         ResultSet rs = null;
@@ -61,7 +62,7 @@ public class BaseDatos {
         try {
             ps = conexion.prepareStatement(sql);
             rs = ps.executeQuery();
-            while (rs.next()) {
+            /*while (rs.next()) {
                 int codigo = rs.getInt(1);
                 String nombre = rs.getString(2);
                 int valorCompra = rs.getInt(3);
@@ -69,47 +70,26 @@ public class BaseDatos {
                 int Cantidad = rs.getInt(5);
                 String categoria = rs.getString(6);
                 System.out.println("Código : " + codigo + " Nombre: " + nombre + " Valor Compra: " + valorCompra + " Valor Venta: " + valorVenta + " Cantidad: " + Cantidad + " Categoria: " + categoria);
-            }
+            }*/
         } catch (SQLException e) {
             System.out.println("Problema Buscando La Base de Datos");
         }
 
-        //return rs;
+        return rs;
     }
 
-    public ResultSet Consultar(int codigo, String nombre) {
+    public ResultSet Consultar(String code, String nombre) {
+        int codigo = Integer.parseInt(code);
         PreparedStatement ps;
         ResultSet rs = null;
-        String cadena_codigo = String.valueOf(codigo);
-        int flag = 0;
-        String sql = " ";
-        if(!" ".equals(cadena_codigo) && " ".equals(nombre)){
-            sql = "SELECT * FROM Producto WHERE codigo = ?";
-            flag = 1;
-        }else if(!" ".equals(nombre) && " ".equals(cadena_codigo)){
-            sql = "SELECT * FROM Producto WHERE nombre = ?";
-            flag = 2;
-        }else if(!" ".equals(cadena_codigo) && !" ".equals(nombre)){
-            sql = "SELECT * FROM Poducto WHERE codigo = ? AND nombre = ?";
-            flag = 3;
-        }else{
-            System.out.println("No escribió en ningún campo");
-        }
+        String sql = "SELECT * FROM Producto WHERE codigo=? AND nombre =?";
         try {
             ps = conexion.prepareStatement(sql);
-            switch (flag) {
-                case 1 : ps.setInt(1, codigo);
-                case 2 : ps.setString(1, nombre);
-                case 3 : {
-                            ps.setInt(1, codigo);
-                            ps.setString(2, nombre);}
-                default : {
-                    System.out.println("No hay argumentos para el query");
-                }
-            }
+            ps.setInt(1, codigo);
+            ps.setString(2, nombre);
             rs = ps.executeQuery();
         } catch (SQLException e) {
-            System.out.println("Problema Buscando La Base de Datos");
+            System.out.println("Problema Buscando La Base de Datos " + e + " conexion: "+ conexion);
         }
         return rs;
     }
@@ -138,72 +118,34 @@ public class BaseDatos {
 
     }
     
-    public String Modificar(String nombre, String cadena_vc, String cadena_vv, String cadena_c) {
+    public ResultSet traerCamposPruducto(String nombre){
         PreparedStatement ps;
-        String sql = " ";    
-        int flag = 0;
-        if(!"".equals(cadena_vc) && "".equals(cadena_vv) && "".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_compra =? WHERE nombre =?";
-            flag = 1;
-        }else if(!"".equals(cadena_vv) && "".equals(cadena_vc) && "".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_venta =? WHERE nombre =?";
-            flag = 2;
-        }else if(!"".equals(cadena_c) && "".equals(cadena_vv) && "".equals(cadena_vc)){
-            sql = "UPDATE Producto SET cantidad =? WHERE nombre =?";
-            flag = 3;
-        }else if(!"".equals(cadena_vc) && !"".equals(cadena_vv) && "".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_compra =?, valor_venta =? WHERE nombre =?";
-            flag = 4;
-        }else if(!"".equals(cadena_vv) && "".equals(cadena_vc) && !"".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_venta =?, cantidad =? WHERE nombre =?";
-            flag = 5;
-        }else if(!"".equals(cadena_c) && "".equals(cadena_vv) && !"".equals(cadena_vc)){
-            sql = "UPDATE Producto SET valor_compra =?, cantidad =? WHERE nombre =?";
-            flag = 6;
-        }else if(!"".equals(cadena_vc) && !"".equals(cadena_vv) && !"".equals(cadena_c)){
-            sql = "UPDATE Producto SET valor_compra =?, valor_venta =?, cantidad =? WHERE nombre =?";
-            flag = 7;
-        }else{
-            System.out.println("No escribió en ningún campo");
-        }
-        
+        ResultSet rs = null;
+        String sql = " ";
+        sql = "SELECT valor_compra, valor_venta, cantidad WHERE nombre = ?";
         try {
             ps = conexion.prepareStatement(sql);
-            switch (flag) {
-                case 1 : {
-                    ps.setString(1, cadena_vc);
-                    ps.setString(2, nombre);
-                }
-                case 2 : {
-                    ps.setString(1, cadena_vv);
-                    ps.setString(2, nombre);
-                }
-                case 3 : {
-                    ps.setString(1, cadena_c);
-                    ps.setString(2, nombre);
-                }
-                case 4 : {
-                    ps.setString(1, cadena_vc);
-                    ps.setString(2, cadena_vv);
-                    ps.setString(3, nombre);
-                }
-                case 5 : {
-                    ps.setString(1, cadena_vv);
-                    ps.setString(2, cadena_c);
-                    ps.setString(3, nombre);
-                }
-                case 6 : {
-                    ps.setString(1, cadena_vc);
-                    ps.setString(2, cadena_c);
-                    ps.setString(3, nombre);
-                }
-                default : {
-                        ps.setString(1, cadena_vc);
-                        ps.setString(2, cadena_vv);
-                        ps.setString(3, cadena_c);
-                        ps.setString(4, nombre);
-                }
-            }
+            rs = ps.executeQuery();
+        } catch (SQLException e) {
+            System.out.println("Problema Buscando La Base de Dtos");
+        }
+        return rs;
+    }
+    
+    public String Modificar(String nombre, String cadena_vc, String cadena_vv, String cadena_c) {
+        int valor_compra = Integer.parseInt(cadena_vc);
+        int valor_venta = Integer.parseInt(cadena_vv);
+        int categoria = Integer.parseInt(cadena_c);
+        PreparedStatement ps;
+        String sql = " ";    
+        sql = "UPDATE Producto SET valor_compra =?, valor_venta =?, cantidad =? WHERE nombre =?";
+
+        try {
+            ps = conexion.prepareStatement(sql); 
+            ps.setInt(1, valor_compra);
+            ps.setInt(2, valor_venta);
+            ps.setInt(3, categoria);
+            ps.setString(4, nombre);
             int contador = ps.executeUpdate();
             if (contador > 0) {
                 System.out.print("Se agregó el registro de manera exitosa");

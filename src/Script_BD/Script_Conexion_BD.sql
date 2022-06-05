@@ -4,9 +4,9 @@ use tienda_reto_5;
 create table Producto(
 	codigo int primary key not null,
 	nombre varchar (45) not null,
-	valor_compra varchar (45) not null,
-	valor_venta varchar (45) not null,
-	cantidad varchar (45) not null,
+	valor_compra int not null,
+	valor_venta int not null,
+	cantidad int not null,
 	categoria varchar (20)
 );
 
