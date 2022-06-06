@@ -49,6 +49,7 @@ public class BaseDatos {
     public void closeConnection() {
         try {
             conexion.close();
+            System.out.println("Conexion cerrada");
         } catch (SQLException e) {
             System.out.println("Problema al cerrar la conexion de la Base de Datos");
         }
@@ -94,12 +95,12 @@ public class BaseDatos {
         return rs;
     }
 
-    public String Crear(int id, String Nombre, int valorCompra, int valorVenta, int Cantidad, String Categoria) {//OK
+    public String Crear(int Codigo, String Nombre, int valorCompra, int valorVenta, int Cantidad, String Categoria) {//OK
         PreparedStatement ps;
-        String sql = "INSERT INTO Producto(id,nombre,valor_compra,valor_venta,cantidad,categoria) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO Producto(codigo,nombre,valor_compra,valor_venta,cantidad,categoria) VALUES (?,?,?,?,?,?)";
         try {
             ps = conexion.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, Codigo);
             ps.setString(2, Nombre);
             ps.setInt(3, valorCompra);
             ps.setInt(4, valorVenta);
@@ -107,24 +108,24 @@ public class BaseDatos {
             ps.setString(6, Categoria);
             int contador = ps.executeUpdate();
             if (contador > 0) {
-                return "Se agregó el registro de manera exitosa";
+                return "Se agregó el registro de manera exitosa\n";
             } else {
-                return "Ocurrio un problema al agregar el registro";
+                return "Ocurrio un problema al agregar el registro\n";
 
             }
         } catch (SQLException e) {
-            return "Problema al crear un nuevo producto";
+            return "Problema al crear un nuevo producto\n";
         }
 
     }
     
-    public ResultSet traerCamposPruducto(String nombre){
+    public ResultSet traerCamposPruducto(String Nombre){
         PreparedStatement ps;
         ResultSet rs = null;
-        String sql = " ";
-        sql = "SELECT valor_compra, valor_venta, cantidad WHERE nombre = ?";
+        String sql = "SELECT valor_compra, valor_venta, cantidad FROM Producto WHERE nombre = ?";
         try {
             ps = conexion.prepareStatement(sql);
+            ps.setString(1, Nombre);
             rs = ps.executeQuery();
         } catch (SQLException e) {
             System.out.println("Problema Buscando La Base de Dtos");
@@ -148,13 +149,13 @@ public class BaseDatos {
             ps.setString(4, nombre);
             int contador = ps.executeUpdate();
             if (contador > 0) {
-                System.out.print("Se agregó el registro de manera exitosa");
+                System.out.print("Se agregó el registro de manera exitosa\n");
             } else {
-                System.out.print("Ocurrio un problema al agregar el registro");
+                System.out.print("Ocurrio un problema al agregar el registro\n");
             }
         } catch (SQLException e) {
-            return "Error la hacer Update" + e;
+            return "Error la hacer Update\n";
         }
-        return "Registro actualizado con éxito";
+        return "Registro actualizado con éxito\n";
     }
 }
