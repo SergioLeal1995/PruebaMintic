@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.BaseDatos;
 
-public class controlador {
+public class AplMain {
     public static void main(String[] args) throws SQLException {
         //BaseDatos database; //creo un objeto de tipo control
         //database = new BaseDatos();

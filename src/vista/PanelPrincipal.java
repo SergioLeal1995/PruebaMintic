@@ -7,7 +7,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-
 public final class PanelPrincipal extends JPanel {
 
     private JLabel e_Bienvenido;

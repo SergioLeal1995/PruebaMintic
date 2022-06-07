@@ -9,12 +9,11 @@ public class VentanaPrincipal extends JFrame {
     private PanelPrincipal PanelPrincipal;
     
     public VentanaPrincipal() throws SQLException {
-        setTitle("Reto 5");
+        setTitle("Reto 5: Principal");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(new Color(10,148,100));
         getContentPane().setLayout(null);
-
         inicializarComponentes();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -32,6 +31,14 @@ public class VentanaPrincipal extends JFrame {
     }
 
     public void setPanel(PanelPrincipal PanelPrincipal) {
+        this.PanelPrincipal = PanelPrincipal;
+    }
+
+    public PanelPrincipal getPanelPrincipal() {
+        return PanelPrincipal;
+    }
+
+    public void setPanelPrincipal(PanelPrincipal PanelPrincipal) {
         this.PanelPrincipal = PanelPrincipal;
     }
     

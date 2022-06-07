@@ -4,31 +4,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import vista.VentanaPrincipal;
+import vista.VentanaCrear;
 
 import modelo.BaseDatos;
 
 public class ControlesVentanas implements ActionListener {
     private VentanaPrincipal VentanaBienvenido;
-    
+    private VentanaCrear VentanaCrear;
     private BaseDatos bd;
     
     public ControlesVentanas() throws SQLException {
         VentanaBienvenido  = new VentanaPrincipal();
+        VentanaCrear = new VentanaCrear();
         asignarOyentes();
         VentanaBienvenido.setVisible(true);
+        VentanaCrear.setVisible(false);
     }
-    public void asignarOyentes(){/*
-        
-    // ELementos en PanelBienvenido (Ventana1)
-        
-        VentanaBienvenido.getPbienvido().getB_Crear().addActionListener(this);
-        VentanaBienvenido.getPbienvido().getB_Modificar().addActionListener(this);
-        VentanaBienvenido.getPbienvido().getB_Eliminar().addActionListener(this);
-        VentanaBienvenido.getPbienvido().getB_Consultar().addActionListener(this);
-        VentanaBienvenido.getPbienvido().getB_Listar().addActionListener(this);
-        
-        // Elementos de PanelCrear (Ventana2)
-        */
+    public void asignarOyentes(){
+        // VentanaPrincipal (PanelPrincipal)
+        VentanaBienvenido.getPanelPrincipal().getB_Crear().addActionListener(this);
+        VentanaBienvenido.getPanelPrincipal().getB_Modificar().addActionListener(this);
+        VentanaBienvenido.getPanelPrincipal().getB_Eliminar().addActionListener(this);
+        VentanaBienvenido.getPanelPrincipal().getB_Modificar().addActionListener(this);
+        VentanaBienvenido.getPanelPrincipal().getB_Listar().addActionListener(this);
+        // VentanaCrear (PanelCrear)
+       
     }
     
     @Override
@@ -39,11 +39,18 @@ public class ControlesVentanas implements ActionListener {
                 //
                 VentanaBienvenido.setVisible(false);
                 System.out.println("Sirve el botón CREAR");
+                //poner Visible la Ventanar crear
+                VentanaCrear.setVisible(true);
                 
             } catch (Exception ex) {
                 System.out.println("Problema al insertar la información.");
             }
             //bd.closeConnection();  
+        }
+        else if (e.getActionCommand().equals("modificar")){
+            VentanaBienvenido.setVisible(false);
+            System.out.println("Boton modificar");
+            VentanaCrear.setVisible(true);
         }
     }
 }
