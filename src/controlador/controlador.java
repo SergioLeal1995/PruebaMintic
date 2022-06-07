@@ -6,11 +6,11 @@ import modelo.BaseDatos;
 
 public class controlador {
     public static void main(String[] args) {
-        BaseDatos database; //creo un objeto de tipo control
-        database = new BaseDatos();
+        //BaseDatos database; //creo un objeto de tipo control
+        //database = new BaseDatos();
         
         // Método de establecer conexión
-        database.EstableciendoConexion();
+        //database.EstableciendoConexion();
         
         // Método de cerrar conexión
         //database.closeConnection();
@@ -67,8 +67,14 @@ public class controlador {
         }*/
         
         // Método para modificar registro
-        System.out.print(database.Modificar("Hombre solo", "0", "4", "100"));
+        //System.out.print(database.Modificar("Hombre solo", "0", "4", "100"));
         
-
+        /*
+        Pruebas de interface
+        */
+        controlador_ventanas control = new controlador_ventanas();
+        
+        //Controller control = new Controller();
+        
     }
 }
