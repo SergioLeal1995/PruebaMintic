@@ -20,7 +20,7 @@ public final class PanelPrincipal extends JPanel {
     
     public PanelPrincipal() {
         setLayout(new GridLayout(6, 3, 40, 20));
-        setBackground(Color.GREEN);
+        setBackground(new Color(10,148,100));
         
         inicializarComponentes();
 
