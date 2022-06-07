@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import modelo.BaseDatos;
 
 public class controlador {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         //BaseDatos database; //creo un objeto de tipo control
         //database = new BaseDatos();
         
@@ -72,7 +72,7 @@ public class controlador {
         /*
         Pruebas de interface
         */
-        controlador_ventanas control = new controlador_ventanas();
+        ControlesVentanas control = new ControlesVentanas();
         
         //Controller control = new Controller();
         

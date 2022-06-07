@@ -2,21 +2,20 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.Ventana_1Main;
-//import vista.Ventana_2Crear;
+import java.sql.SQLException;
+import vista.VentanaPrincipal;
+
 import modelo.BaseDatos;
 
-public class controlador_ventanas implements ActionListener {
-    private Ventana_1Main VentanaBienvenido;
-    //private Ventana_2Crear VentanaCrear;
-    //private Ventana_2Crear VentanaCrear;
+public class ControlesVentanas implements ActionListener {
+    private VentanaPrincipal VentanaBienvenido;
+    
     private BaseDatos bd;
     
-    public controlador_ventanas(){
-        VentanaBienvenido  = new Ventana_1Main();
-        //VentanaCrear = new Ventana_2Crear();
+    public ControlesVentanas() throws SQLException {
+        VentanaBienvenido  = new VentanaPrincipal();
         asignarOyentes();
-        
+        VentanaBienvenido.setVisible(true);
     }
     public void asignarOyentes(){/*
         

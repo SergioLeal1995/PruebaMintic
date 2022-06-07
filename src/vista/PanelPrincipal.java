@@ -1,14 +1,15 @@
 package vista;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.event.EventListenerList;
-import javax.swing.plaf.ComponentUI;
 
-public class PanelBienvenido extends JPanel{
+
+public final class PanelPrincipal extends JPanel {
+
     private JLabel e_Bienvenido;
     private JLabel e_AccionUsar;
     private JLabel e_Vacio;
@@ -18,28 +19,21 @@ public class PanelBienvenido extends JPanel{
     private JButton b_Eliminar;
     private JButton b_Listar;
     
-    public PanelBienvenido() {
-    setLayout(new GridLayout(6, 3, 100, 10));
-        setBackground(new Color(10, 148, 100));
+    public PanelPrincipal() {
+        setLayout(new GridLayout(6, 3, 40, 20));
+        setBackground(Color.GREEN);
+        
         inicializarComponentes();
+
         setVisible(true);
-        /*
-        setLayout(null);
-        inicializarComponentes();
-        setVisible(true);
-        */
     }
-    
+
     public void inicializarComponentes(){
-        //e_Vacio =  new JLabel("PRUEBA");
-        //e_Vacio.setBounds(30, 30, 200, 30);
-        e_Vacio =  new JLabel("PRUEBA");
+        e_Vacio =  new JLabel("");
         add(e_Vacio);
-        
-        
-        e_Vacio =  new JLabel("Uno");
+        e_Vacio =  new JLabel("");
         add(e_Vacio);
-        e_Vacio =  new JLabel("Dos");
+        e_Vacio =  new JLabel("");
         add(e_Vacio);
         //2
         e_Vacio =  new JLabel("");
@@ -81,9 +75,6 @@ public class PanelBienvenido extends JPanel{
         b_Listar = new JButton("Listar");
         b_Listar.setActionCommand("listar");
         add(b_Listar);
-        /*
-        */
-        
     }
 
     public JLabel getE_Bienvenido() {
@@ -150,20 +141,5 @@ public class PanelBienvenido extends JPanel{
         this.b_Listar = b_Listar;
     }
 
-    public ComponentUI getUi() {
-        return ui;
-    }
-
-    public void setUi(ComponentUI ui) {
-        this.ui = ui;
-    }
-
-    public EventListenerList getListenerList() {
-        return listenerList;
-    }
-
-    public void setListenerList(EventListenerList listenerList) {
-        this.listenerList = listenerList;
-    }
     
 }
