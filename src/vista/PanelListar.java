@@ -51,11 +51,12 @@ public class PanelListar extends JPanel {
         //5
         e_Vacio =  new JLabel("");
         add(e_Vacio);
-        e_Vacio =  new JLabel("");
-        add(e_Vacio);
         b_Volver_PListar = new JButton("Volver");
         b_Volver_PListar.setActionCommand("volver_PanelListar");//label para accion
         add(b_Volver_PListar);
+        e_Vacio =  new JLabel("");
+        add(e_Vacio);
+        
     }
 
     public JLabel getE_ListarProducto() {
