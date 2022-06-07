@@ -63,7 +63,7 @@ public final class PanelPrincipal extends JPanel {
         b_Modificar.setActionCommand("modificar");
         add(b_Modificar);
         b_Eliminar = new JButton("Eliminar");
-        b_Eliminar.setActionCommand("modificar");
+        b_Eliminar.setActionCommand("eliminar");
         add(b_Eliminar);
         //6
         b_Consultar = new JButton("Consultar");

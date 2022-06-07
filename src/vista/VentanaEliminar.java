@@ -4,11 +4,10 @@ import java.awt.Color;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 
-public class VentanaPrincipal extends JFrame {
-
-    private PanelPrincipal PanelPrincipal;
+public class VentanaEliminar extends JFrame{
+    private PanelEliminar PanelEliminar;
     
-    public VentanaPrincipal() throws SQLException {
+    public VentanaEliminar() throws SQLException {
         setTitle("Reto 5: Principal");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -19,20 +18,19 @@ public class VentanaPrincipal extends JFrame {
         setLocationRelativeTo(null);
         setVisible(false);
     }
-
     public void inicializarComponentes() throws SQLException {
-        PanelPrincipal = new PanelPrincipal();
-        PanelPrincipal.setBounds(25, 25, 650, 400);
-        getContentPane().add(PanelPrincipal);     
+        PanelEliminar = new PanelEliminar();
+        PanelEliminar.setBounds(25, 25, 650, 400);
+        getContentPane().add(PanelEliminar);     
     }
 
-    public PanelPrincipal getPanelPrincipal() {
-        return PanelPrincipal;
+    public PanelEliminar getPanelEliminar() {
+        return PanelEliminar;
     }
 
-    public void setPanelPrincipal(PanelPrincipal PanelPrincipal) {
-        this.PanelPrincipal = PanelPrincipal;
+    public void setPanelEliminar(PanelEliminar PanelEliminar) {
+        this.PanelEliminar = PanelEliminar;
     }
     
-
+    
 }

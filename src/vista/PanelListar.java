@@ -25,7 +25,7 @@ public class PanelListar extends JPanel {
     
     public void inicializarComponentes(){
         e_Vacio =  new JLabel("Listar Productos", SwingConstants.CENTER);
-        e_Vacio.setBounds(150,10,150,30);
+        e_Vacio.setBounds(200,10,150,30);
         add(e_Vacio);
         //2
 
@@ -61,7 +61,7 @@ public class PanelListar extends JPanel {
         
         b_Volver_PListar = new JButton("Volver");
         b_Volver_PListar.setActionCommand("volver_PanelListar");//label para accion
-        b_Volver_PListar.setBounds(150, 300, 150, 30);
+        b_Volver_PListar.setBounds(200, 300, 150, 50);
         add(b_Volver_PListar);
     }
 
