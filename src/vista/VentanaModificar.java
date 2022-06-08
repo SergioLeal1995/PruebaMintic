@@ -8,7 +8,7 @@ public class VentanaModificar extends JFrame{
     private PanelModificar PanelModificar;
     
     public VentanaModificar() throws SQLException {
-        setTitle("Reto 5: Principal");
+        setTitle("Reto 5: Modificar");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(new Color(10,148,100));

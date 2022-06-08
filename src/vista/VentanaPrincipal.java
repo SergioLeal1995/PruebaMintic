@@ -33,6 +33,5 @@ public class VentanaPrincipal extends JFrame {
     public void setPanelPrincipal(PanelPrincipal PanelPrincipal) {
         this.PanelPrincipal = PanelPrincipal;
     }
-    
 
 }

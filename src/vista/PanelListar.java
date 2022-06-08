@@ -25,7 +25,7 @@ public class PanelListar extends JPanel {
     
     public void inicializarComponentes(){
         e_Vacio =  new JLabel("Listar Productos", SwingConstants.CENTER);
-        e_Vacio.setBounds(200,10,150,30);
+        e_Vacio.setBounds(260,10,150,30);
         add(e_Vacio);
         //2
 
@@ -52,7 +52,7 @@ public class PanelListar extends JPanel {
                 mod.addRow(resultados);
                 
         JScrollPane scroll= new JScrollPane(tablaDatos);
-        scroll.setBounds(10,100,500,150);
+        scroll.setBounds(10,100,630,150);
         add(scroll);
 
         scroll.setVisible(true);        
@@ -61,7 +61,7 @@ public class PanelListar extends JPanel {
         
         b_Volver_PListar = new JButton("Volver");
         b_Volver_PListar.setActionCommand("volver_PanelListar");//label para accion
-        b_Volver_PListar.setBounds(200, 300, 150, 50);
+        b_Volver_PListar.setBounds(260, 350, 150, 30);
         add(b_Volver_PListar);
     }
 

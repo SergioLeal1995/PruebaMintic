@@ -22,7 +22,7 @@ public class PanelCrear extends JPanel {
     private JButton b_Volver_PCrear;
             
     public PanelCrear() {
-        setLayout(new GridLayout(6, 3, 40, 20));
+        setLayout(new GridLayout(8, 3, 40, 20));
         setBackground(new Color(10,148,100));
         
         inicializarComponentes();
@@ -37,11 +37,11 @@ public class PanelCrear extends JPanel {
         e_Vacio =  new JLabel("");
         add(e_Vacio);
         //2
-        e_Vacio =  new JLabel("");
+        e_Vacio =  new JLabel("Nombre:",SwingConstants.CENTER);
         add(e_Vacio);
-        e_Vacio =  new JLabel("");
+        e_Vacio =  new JLabel("Código:",SwingConstants.CENTER);
         add(e_Vacio);
-        e_Vacio =  new JLabel("");
+        e_Vacio =  new JLabel("Categoría:",SwingConstants.CENTER);
         add(e_Vacio);
         //3
         t_Nombre = new JTextField();
@@ -51,20 +51,27 @@ public class PanelCrear extends JPanel {
         t_Categoria = new JTextField();
         add(t_Categoria);
         //4
+        e_Vacio =  new JLabel("Valor de compra:",SwingConstants.CENTER);
+        add(e_Vacio);
+        e_Vacio =  new JLabel("Cantidad:",SwingConstants.CENTER);
+        add(e_Vacio);
+        e_Vacio =  new JLabel("Valor de venta:",SwingConstants.CENTER);
+        add(e_Vacio);
+        //5
         t_ValorCompra = new JTextField();
         add(t_ValorCompra);
         t_Cantidad = new JTextField();
         add(t_Cantidad);
         t_ValorVenta = new JTextField();
-        add(t_ValorVenta);
-        //5
-        e_Vacio =  new JLabel("");
-        add(e_Vacio);
-        e_Vacio =  new JLabel("");
-        add(e_Vacio);
-        e_Vacio =  new JLabel("");
-        add(e_Vacio);
+        add(t_ValorVenta);     
         //6
+        e_Vacio = new JLabel("");
+        add(e_Vacio);
+        e_Vacio = new JLabel("");
+        add(e_Vacio);
+        e_Vacio = new JLabel("");
+        add(e_Vacio);
+        //
         b_Crear_PCrear = new JButton("Crear");
         b_Crear_PCrear.setActionCommand("crear_PanelCrear");//label para accion
         add(b_Crear_PCrear);

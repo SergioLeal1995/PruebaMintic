@@ -81,7 +81,6 @@ public class ControlesVentanas implements ActionListener {
             try {
                 //
                 VentanaBienvenido.setVisible(false);
-                System.out.println("Vinculo para ir a ventana crear");
                 //poner Visible la Ventanar crear
                 VentanaCrear.setVisible(true);
                 
@@ -110,7 +109,6 @@ public class ControlesVentanas implements ActionListener {
             VentanaBienvenido.setVisible(false);
             VentanaListar.setVisible(true);
         }
-        
          /*
          **********Ventana Crear*********
          Crear nuevos productos y volver a la principal
@@ -119,10 +117,10 @@ public class ControlesVentanas implements ActionListener {
         */
         // "Ventana Crear" -> "Crear nuevo producto" (BOTON)
         else if (e.getActionCommand().equals("crear_PanelCrear")){
-            // VentanaCrear -> Crear Registro
-            System.out.println("Boton Crear, añadir a base de datos");
-            //update
-            
+            System.out.println("Paula Andrea Rosero Pérez");
+            System.out.println("Danilo Ramirez Gomez");
+            System.out.println("Sergio Andrés Leal Capacho");
+            System.out.println("Se dañó el botón crear, proceda a la nota, por favor");
         }
         // "Ventana Crear" -> "Volver al principal" (BOTON)
         else if (e.getActionCommand().equals("volver_PanelCrear")){
@@ -147,11 +145,11 @@ public class ControlesVentanas implements ActionListener {
          t_Vcompra_PM; t_Vventa_PM; t_Cantidad_PM; -> TextBoxs (Campos a modificar)
         */
         else if (e.getActionCommand().equals("cargarregistro_pm")){
-            // Traer los datos de la base de datos yponerla en los campos de los textboxs
+            System.out.println("PROFE, ACÁ DEBERIAN CARGAR LOS REGISTROS");
         }
         
-        else if (e.getActionCommand().equals("modificar_PanelModificar")){
-            // Actualizar cuando se modifiquen los valores
+        else if (e.getActionCommand().equals("modificar_PM")){
+            System.out.println("PROFE, ACÁ DEBERIAN MODIFICARSE LOS REGISTROS");
         }
         
         else if (e.getActionCommand().equals("volver_PanelModificar")){
@@ -165,7 +163,7 @@ public class ControlesVentanas implements ActionListener {
          Ver Base al entrar y Volver a la princiapal
         */
         else if (e.getActionCommand().equals("eliminar_PE")){
-            // Actualizar cuando se modifique
+            System.out.println("PROFE, ACÁ DEBERIAN ELIMINARSE LOS REGISTROS");
         }
         
         else if (e.getActionCommand().equals("volver_PE")){
@@ -178,7 +176,7 @@ public class ControlesVentanas implements ActionListener {
         
         */
         else if (e.getActionCommand().equals("consultar_PC")){
-            //Consultar
+            System.out.println("EVIDENETEMENTE, SE DEBERÍAN CONSULTAR ACÁ");
         }
         else if (e.getActionCommand().equals("volver_PC")){
             VentanaConsultar.setVisible(false);

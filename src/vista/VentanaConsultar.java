@@ -19,7 +19,7 @@ public class VentanaConsultar extends JFrame {
     }
     public void inicializarComponentes() throws SQLException {
         PanelConsultar = new PanelConsultar();
-        PanelConsultar.setBounds(25, 25, 600, 400);
+        PanelConsultar.setBounds(25, 25, 650, 400);
         getContentPane().add(PanelConsultar);     
     }  
 

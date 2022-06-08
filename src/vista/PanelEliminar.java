@@ -17,7 +17,7 @@ public class PanelEliminar extends JPanel{
     private JButton b_volver_PE;
     
     public PanelEliminar(){
-        setLayout(new GridLayout(5, 3, 40, 20));
+        setLayout(new GridLayout(7, 3, 40, 20));
         setBackground(new Color(10,148,100));
         
         inicializarComponentes();
@@ -53,6 +53,13 @@ public class PanelEliminar extends JPanel{
         e_Vacio =  new JLabel("");
         add(e_Vacio);
         //5
+        e_Vacio =  new JLabel("");
+        add(e_Vacio);
+        e_Vacio =  new JLabel("");
+        add(e_Vacio);
+        e_Vacio =  new JLabel("");
+        add(e_Vacio);
+        //
         b_eliminar_PE = new JButton("Eliminar");
         b_eliminar_PE.setActionCommand("eliminar_PE");//label para accion
         add(b_eliminar_PE);

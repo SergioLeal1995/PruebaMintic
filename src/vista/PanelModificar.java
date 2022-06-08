@@ -72,7 +72,7 @@ public class PanelModificar extends JPanel{
         add(t_Cantidad_PM);
         //7
         b_Modificar_PM = new JButton("Modificar");
-        b_Modificar_PM.setActionCommand("crear_PanelModificar");//label para accion
+        b_Modificar_PM.setActionCommand("modificar_PM");//label para accion
         add(b_Modificar_PM);
         e_Vacio =  new JLabel("");
         add(e_Vacio);

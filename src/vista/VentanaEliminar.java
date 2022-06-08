@@ -8,7 +8,7 @@ public class VentanaEliminar extends JFrame{
     private PanelEliminar PanelEliminar;
     
     public VentanaEliminar() throws SQLException {
-        setTitle("Reto 5: Principal");
+        setTitle("Reto 5: Eliminar");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(new Color(10,148,100));

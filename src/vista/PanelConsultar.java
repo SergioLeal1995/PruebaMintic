@@ -27,8 +27,8 @@ public class PanelConsultar extends JPanel{
     }
     
     public void inicializarComponentes(){
-        e_consultarProducto =  new JLabel("Listar Productos", SwingConstants.CENTER);
-        e_consultarProducto.setBounds(200,10,150,30);
+        e_consultarProducto =  new JLabel("Consultar Productos", SwingConstants.CENTER);
+        e_consultarProducto.setBounds(230,10,150,30);
         add(e_consultarProducto);
         //2
         e_consultarProducto = new JLabel("Nombre:",SwingConstants.CENTER);
@@ -36,16 +36,16 @@ public class PanelConsultar extends JPanel{
         add(e_consultarProducto);
         
         e_consultarProducto = new JLabel("Codigo:",SwingConstants.CENTER);
-        e_consultarProducto.setBounds(480, 80, 150, 30);
+        e_consultarProducto.setBounds(490, 80, 150, 30);
         add(e_consultarProducto);
         
         //Jtexts 3
         t_nombre_PC = new JTextField();
-        t_nombre_PC.setBounds(20, 150, 150, 30);
+        t_nombre_PC.setBounds(20, 110, 150, 30);
         add(t_nombre_PC);
         
         t_codigo_PC = new JTextField();
-        t_codigo_PC.setBounds(480, 150, 150, 30);
+        t_codigo_PC.setBounds(490, 110, 150, 30);
         add(t_codigo_PC);
         //4
         tablaDatos_PC = new JTable();      
@@ -61,7 +61,6 @@ public class PanelConsultar extends JPanel{
         tablaDatos_PC.setModel(mod);
 
         String [] resultados = new String[6]; //String con datos
-        
                 resultados[0]= "123";
                 resultados[1]= "audio";
                 resultados[2]= "123";
@@ -69,9 +68,8 @@ public class PanelConsultar extends JPanel{
                 resultados[4]= "1323";
                 resultados[5]= "es";
                 mod.addRow(resultados);
-                
         JScrollPane scroll= new JScrollPane(tablaDatos_PC);
-        scroll.setBounds(20,230,500,150);
+        scroll.setBounds(20,170,620,150);
         add(scroll);
 
         scroll.setVisible(true); 
@@ -84,7 +82,7 @@ public class PanelConsultar extends JPanel{
         
         b_Volver_PC = new JButton("Volver");
         b_Volver_PC.setActionCommand("volver_PC");//label para accion
-        b_Volver_PC.setBounds(480, 350, 150, 30);
+        b_Volver_PC.setBounds(490, 350, 150, 30);
         add(b_Volver_PC);
     }
 

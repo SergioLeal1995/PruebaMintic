@@ -4,6 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.BaseDatos;
 
+
+                /*
+                INTEGRANTES:
+                Paula Andrea Rosero Pérez
+                Danilo Ramirez Gomez
+                Sergio Andrés Leal Capacho
+                */
 public class AplMain {
     public static void main(String[] args) throws SQLException {
         //BaseDatos database; //creo un objeto de tipo control
@@ -73,8 +80,12 @@ public class AplMain {
         Pruebas de interface
         */
         ControlesVentanas control = new ControlesVentanas();
-        
-        //Controller control = new Controller();
+        /*
+                INTEGRANTES:
+                Paula Andrea Rosero Pérez
+                Danilo Ramirez Gomez
+                Sergio Andrés Leal Capacho
+                */
         
     }
 }

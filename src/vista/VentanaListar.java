@@ -21,7 +21,7 @@ public class VentanaListar extends JFrame {
     
     public void inicializarComponentes() throws SQLException {
         PanelListar = new PanelListar ();
-        PanelListar.setBounds(25, 25, 600, 400);
+        PanelListar.setBounds(25, 25, 650, 400);
         getContentPane().add(PanelListar);     
         
     }

@@ -19,7 +19,7 @@ public class VentanaCrear extends JFrame {
     }
     public void inicializarComponentes() throws SQLException {
         PanelCrear = new PanelCrear ();
-        PanelCrear.setBounds(25, 25, 600, 400);
+        PanelCrear.setBounds(25, 25, 650, 400);
         getContentPane().add(PanelCrear);     
     }
 
